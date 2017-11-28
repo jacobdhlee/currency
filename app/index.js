@@ -1,21 +1,10 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import EStyleSheet from 'react-native-extended-stylesheet';
+import Home from './screen/Home';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+EStyleSheet.build({
+  $primaryBlue: '#4F6D7A',
+  $white: '#FFFFFF',
 });
 
-export default class App extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Fuck you! at index.js</Text>
-      </View>
-    );
-  }
-}
+export default () => <Home />;
