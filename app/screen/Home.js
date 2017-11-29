@@ -3,6 +3,7 @@ import { View, StatusBar } from 'react-native';
 import { Container } from '../components/Container';
 import { Logo } from '../components/Logo';
 import { InputWithButton } from '../components/TextInput';
+import { ClearButton } from '../components/Button';
 
 const TEMP_BASE_CURRENCY = 'USD';
 const QUOTE_BASE_CURRENCY = 'SKW';
@@ -14,6 +15,7 @@ class Home extends Component {
     super();
     this.buttonPress = this.buttonPress.bind(this);
     this.onChangeText = this.handleChangeText.bind(this);
+    this.handleReverseButton = this.handleReverseButton.bind(this);
   }
 
   buttonPress() {
@@ -22,6 +24,10 @@ class Home extends Component {
 
   handleChangeText(text) {
     console.log(text);
+  }
+
+  handleReverseButton() {
+    console.log('fuck you');
   }
 
   render() {
@@ -41,6 +47,10 @@ class Home extends Component {
           onPress={this.buttonPress}
           editable={false}
           defaultValue={QUOTE_BASE}
+        />
+        <ClearButton
+          text="reverse currency"
+          onPress={this.handleReverseButton}
         />
       </Container>
     );
