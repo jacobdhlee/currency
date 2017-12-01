@@ -4,11 +4,14 @@ import { Container } from '../components/Container';
 import { Logo } from '../components/Logo';
 import { InputWithButton } from '../components/TextInput';
 import { ClearButton } from '../components/Button';
+import { ConversionRate } from '../components/Text';
 
 const TEMP_BASE_CURRENCY = 'USD';
 const QUOTE_BASE_CURRENCY = 'SKW';
 const TEMP_BASE = '1';
 const QUOTE_BASE = '1000';
+const TEMP_CONVERSION_RATE = '1000';
+const TEMP_CONVERSION_DATE = new Date();
 
 class Home extends Component {
   constructor() {
@@ -47,6 +50,12 @@ class Home extends Component {
           onPress={this.buttonPress}
           editable={false}
           defaultValue={QUOTE_BASE}
+        />
+        <ConversionRate
+          base={TEMP_BASE_CURRENCY}
+          quote={QUOTE_BASE_CURRENCY}
+          date={TEMP_CONVERSION_DATE}
+          conversionRate={TEMP_CONVERSION_RATE}
         />
         <ClearButton
           text="reverse currency"
