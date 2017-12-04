@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StatusBar } from 'react-native';
+import { View, StatusBar, KeyboardAvoidingView } from 'react-native';
 import { Container } from '../components/Container';
 import { Logo } from '../components/Logo';
 import { InputWithButton } from '../components/TextInput';
@@ -37,30 +37,32 @@ class Home extends Component {
     return (
       <Container>
         <StatusBar translucent={false} barStyle="light-content" />
-        <Logo />
-        <InputWithButton
-          buttonText={TEMP_BASE_CURRENCY}
-          onPress={this.buttonPress}
-          keyboardType="numeric"
-          defaultValue={TEMP_BASE}
-          onChangeText={this.handleChangeText}
-        />
-        <InputWithButton
-          buttonText={QUOTE_BASE_CURRENCY}
-          onPress={this.buttonPress}
-          editable={false}
-          defaultValue={QUOTE_BASE}
-        />
-        <ConversionRate
-          base={TEMP_BASE_CURRENCY}
-          quote={QUOTE_BASE_CURRENCY}
-          date={TEMP_CONVERSION_DATE}
-          conversionRate={TEMP_CONVERSION_RATE}
-        />
-        <ClearButton
-          text="reverse currency"
-          onPress={this.handleReverseButton}
-        />
+        <KeyboardAvoidingView behavior="padding">
+          <Logo />
+          <InputWithButton
+            buttonText={TEMP_BASE_CURRENCY}
+            onPress={this.buttonPress}
+            keyboardType="numeric"
+            defaultValue={TEMP_BASE}
+            onChangeText={this.handleChangeText}
+          />
+          <InputWithButton
+            buttonText={QUOTE_BASE_CURRENCY}
+            onPress={this.buttonPress}
+            editable={false}
+            defaultValue={QUOTE_BASE}
+          />
+          <ConversionRate
+            base={TEMP_BASE_CURRENCY}
+            quote={QUOTE_BASE_CURRENCY}
+            date={TEMP_CONVERSION_DATE}
+            conversionRate={TEMP_CONVERSION_RATE}
+          />
+          <ClearButton
+            text="reverse currency"
+            onPress={this.handleReverseButton}
+          />
+        </KeyboardAvoidingView>
       </Container>
     );
   }
