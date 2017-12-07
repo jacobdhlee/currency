@@ -25,6 +25,7 @@ const Icon = ({ checkmark, visible, iconBackground }) => {
       </View>
     );
   }
+  return <View style={styles.icon} />;
 };
 
 Icon.propTypes = {

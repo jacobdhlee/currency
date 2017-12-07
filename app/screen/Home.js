@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { View, StatusBar, KeyboardAvoidingView } from 'react-native';
+import PropTypes from 'prop-types';
+import { StatusBar, KeyboardAvoidingView } from 'react-native';
 import { Container } from '../components/Container';
+import { Header } from '../components/Header';
 import { Logo } from '../components/Logo';
 import { InputWithButton } from '../components/TextInput';
 import { ClearButton } from '../components/Button';
@@ -14,15 +16,24 @@ const TEMP_CONVERSION_RATE = '1000';
 const TEMP_CONVERSION_DATE = new Date();
 
 class Home extends Component {
+  static propType = {
+    navigation: PropTypes.object,
+  };
   constructor() {
     super();
-    this.buttonPress = this.buttonPress.bind(this);
+    this.handleBaseCurrencyPress = this.handleBaseCurrencyPress.bind(this);
+    this.handleQuoteCurrencyPress = this.handleQuoteCurrencyPress.bind(this);
     this.onChangeText = this.handleChangeText.bind(this);
     this.handleReverseButton = this.handleReverseButton.bind(this);
+    this.handleOptionPress = this.handleOptionPress.bind(this);
   }
 
-  buttonPress() {
-    console.log('button was pressed');
+  handleBaseCurrencyPress() {
+    this.props.navigation.navigate('CurrencyList', { title: 'Base Currency' });
+  }
+
+  handleQuoteCurrencyPress() {
+    this.props.navigation.navigate('CurrencyList', { title: 'Quote Currency' });
   }
 
   handleChangeText(text) {
@@ -33,22 +44,27 @@ class Home extends Component {
     console.log('fuck you');
   }
 
+  handleOptionPress() {
+    console.log('handle option pressed!');
+  }
+
   render() {
     return (
       <Container>
         <StatusBar translucent={false} barStyle="light-content" />
+        <Header onPress={this.handleOptionPress} />
         <KeyboardAvoidingView behavior="padding">
           <Logo />
           <InputWithButton
             buttonText={TEMP_BASE_CURRENCY}
-            onPress={this.buttonPress}
+            onPress={this.handleBaseCurrencyPress}
             keyboardType="numeric"
             defaultValue={TEMP_BASE}
             onChangeText={this.handleChangeText}
           />
           <InputWithButton
             buttonText={QUOTE_BASE_CURRENCY}
-            onPress={this.buttonPress}
+            onPress={this.handleQuoteCurrencyPress}
             editable={false}
             defaultValue={QUOTE_BASE}
           />

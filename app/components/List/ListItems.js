@@ -18,8 +18,8 @@ const ListItems = ({
       <Text style={styles.text}>{text}</Text>
       {selected
         ? <Icon
-          checkmark={checkmark}
           visible={visible}
+          checkmark={checkmark}
           iconBackground={iconBackground}
         />
         : <Icon />}
