@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Ionicons } from '@expo/vector-icons';
-import { ScrollView, StatusBar, Platform } from 'react-native';
+import { ScrollView, StatusBar, Platform, Linking } from 'react-native';
 import { ListItems, Seperator } from '../components/List';
 
 const IconPrefix = Platform.OS === 'ios' ? 'ios' : 'md';
@@ -8,12 +9,15 @@ const IconColor = '#868686';
 const IconSize = 23;
 
 class Option extends Component {
+  static propTypes = {
+    navigation: PropTypes.object,
+  };
   handleThemePress = () => {
-    console.log('theme Pressed');
+    this.props.navigation.navigate('Theme');
   };
 
   handleSitePress = () => {
-    console.log('site pressed!!');
+    Linking.openURL('http://fixer.io').catch(() => alert('error is occured!'));
   };
 
   render() {
@@ -35,8 +39,6 @@ class Option extends Component {
         <ListItems
           text="Fixer.io"
           onPress={this.handleSitePress}
-          text="Theme"
-          onPress={this.handleThemePress}
           customIcon={
             <Ionicons
               name={`${IconPrefix}-link`}
