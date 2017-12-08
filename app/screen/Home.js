@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { StatusBar, KeyboardAvoidingView } from 'react-native';
 import { Container } from '../components/Container';
 import { Header } from '../components/Header';
@@ -7,6 +8,8 @@ import { Logo } from '../components/Logo';
 import { InputWithButton } from '../components/TextInput';
 import { ClearButton } from '../components/Button';
 import { ConversionRate } from '../components/Text';
+
+import { swapCurrecy, changeCurrencyAmount } from '../actions/currencies';
 
 const TEMP_BASE_CURRENCY = 'USD';
 const QUOTE_BASE_CURRENCY = 'SKW';
@@ -18,12 +21,13 @@ const TEMP_CONVERSION_DATE = new Date();
 class Home extends Component {
   static propType = {
     navigation: PropTypes.object,
+    dispatch: PropTypes.func,
   };
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.handleBaseCurrencyPress = this.handleBaseCurrencyPress.bind(this);
     this.handleQuoteCurrencyPress = this.handleQuoteCurrencyPress.bind(this);
-    this.onChangeText = this.handleChangeText.bind(this);
+    this.handleChangeText = this.handleChangeText.bind(this);
     this.handleReverseButton = this.handleReverseButton.bind(this);
     this.handleOptionPress = this.handleOptionPress.bind(this);
   }
@@ -36,12 +40,12 @@ class Home extends Component {
     this.props.navigation.navigate('CurrencyList', { title: 'Quote Currency' });
   }
 
-  handleChangeText(text) {
-    console.log(text);
+  handleChangeText(amount) {
+    this.props.dispatch(changeCurrencyAmount(amount));
   }
 
   handleReverseButton() {
-    console.log('fuck you');
+    this.props.dispatch(swapCurrecy());
   }
 
   handleOptionPress() {
@@ -83,4 +87,4 @@ class Home extends Component {
     );
   }
 }
-export default Home;
+export default connect()(Home);
