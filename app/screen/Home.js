@@ -11,22 +11,33 @@ import { ConversionRate } from '../components/Text';
 
 import { swapCurrecy, changeCurrencyAmount } from '../actions/currencies';
 
-const TEMP_BASE = '1';
-const QUOTE_BASE = '1000';
-const TEMP_CONVERSION_RATE = '1000';
-const TEMP_CONVERSION_DATE = new Date();
-
 @connect((store) => {
-  const { baseCurrency, quoteCurrency } = store.currencies;
+  const {
+    baseCurrency, quoteCurrency, amount, conversions,
+  } = store.currencies;
+  const conversionSelector = conversions[baseCurrency] || {};
+  const rates = conversionSelector.rates || {};
+  const rate = rates[quoteCurrency] || 0;
+  const { isFetching, date } = conversionSelector;
   return {
     baseCurrency,
     quoteCurrency,
+    amount,
+    rate,
+    isFetching,
+    date,
   };
 })
 class Home extends Component {
   static propType = {
     navigation: PropTypes.object,
     dispatch: PropTypes.func,
+    baseCurrency: PropTypes.string,
+    quoteCurrency: PropTypes.string,
+    amount: PropTypes.number,
+    rate: PropTypes.object,
+    isFetching: PropTypes.bool,
+    date: PropTypes.object,
   };
   constructor(props) {
     super(props);
@@ -58,7 +69,18 @@ class Home extends Component {
   }
 
   render() {
-    const { baseCurrency, quoteCurrency } = this.props;
+    const {
+      baseCurrency,
+      quoteCurrency,
+      amount,
+      rate,
+      isFetching,
+      date,
+    } = this.props;
+    let quotePrice = (amount * rate).toFixed(2);
+    if (isFetching) {
+      quotePrice = '...';
+    }
     return (
       <Container>
         <StatusBar translucent={false} barStyle="light-content" />
@@ -69,20 +91,20 @@ class Home extends Component {
             buttonText={baseCurrency}
             onPress={this.handleBaseCurrencyPress}
             keyboardType="numeric"
-            defaultValue={TEMP_BASE}
+            defaultValue={amount.toString()}
             onChangeText={this.handleChangeText}
           />
           <InputWithButton
             buttonText={quoteCurrency}
             onPress={this.handleQuoteCurrencyPress}
             editable={false}
-            defaultValue={QUOTE_BASE}
+            defaultValue={quotePrice}
           />
           <ConversionRate
             base={baseCurrency}
             quote={quoteCurrency}
-            date={TEMP_CONVERSION_DATE}
-            conversionRate={TEMP_CONVERSION_RATE}
+            date={date}
+            conversionRate={rate}
           />
           <ClearButton
             text="reverse currency"
