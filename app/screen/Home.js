@@ -11,13 +11,18 @@ import { ConversionRate } from '../components/Text';
 
 import { swapCurrecy, changeCurrencyAmount } from '../actions/currencies';
 
-const TEMP_BASE_CURRENCY = 'USD';
-const QUOTE_BASE_CURRENCY = 'SKW';
 const TEMP_BASE = '1';
 const QUOTE_BASE = '1000';
 const TEMP_CONVERSION_RATE = '1000';
 const TEMP_CONVERSION_DATE = new Date();
 
+@connect((store) => {
+  const { baseCurrency, quoteCurrency } = store.currencies;
+  return {
+    baseCurrency,
+    quoteCurrency,
+  };
+})
 class Home extends Component {
   static propType = {
     navigation: PropTypes.object,
@@ -53,6 +58,7 @@ class Home extends Component {
   }
 
   render() {
+    const { baseCurrency, quoteCurrency } = this.props;
     return (
       <Container>
         <StatusBar translucent={false} barStyle="light-content" />
@@ -60,21 +66,21 @@ class Home extends Component {
         <KeyboardAvoidingView behavior="padding">
           <Logo />
           <InputWithButton
-            buttonText={TEMP_BASE_CURRENCY}
+            buttonText={baseCurrency}
             onPress={this.handleBaseCurrencyPress}
             keyboardType="numeric"
             defaultValue={TEMP_BASE}
             onChangeText={this.handleChangeText}
           />
           <InputWithButton
-            buttonText={QUOTE_BASE_CURRENCY}
+            buttonText={quoteCurrency}
             onPress={this.handleQuoteCurrencyPress}
             editable={false}
             defaultValue={QUOTE_BASE}
           />
           <ConversionRate
-            base={TEMP_BASE_CURRENCY}
-            quote={QUOTE_BASE_CURRENCY}
+            base={baseCurrency}
+            quote={quoteCurrency}
             date={TEMP_CONVERSION_DATE}
             conversionRate={TEMP_CONVERSION_RATE}
           />
@@ -87,4 +93,4 @@ class Home extends Component {
     );
   }
 }
-export default connect()(Home);
+export default Home;

@@ -2,7 +2,7 @@ import { SWAP_CURRENCY, CHANGE_CURRENCY_AMOUNT } from '../actions/currencies';
 
 const INITIAL_STATE = {
   baseCurrency: 'USD',
-  quoteCurrency: 'KRW',
+  quoteCurrency: 'GBP',
   amount: 100,
   conversion: {},
 };
