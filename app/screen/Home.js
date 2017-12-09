@@ -34,7 +34,7 @@ class Home extends Component {
     dispatch: PropTypes.func,
     baseCurrency: PropTypes.string,
     quoteCurrency: PropTypes.string,
-    amount: PropTypes.number,
+    amount: PropTypes.string,
     rate: PropTypes.object,
     isFetching: PropTypes.bool,
     date: PropTypes.object,
@@ -49,11 +49,17 @@ class Home extends Component {
   }
 
   handleBaseCurrencyPress() {
-    this.props.navigation.navigate('CurrencyList', { title: 'Base Currency' });
+    this.props.navigation.navigate('CurrencyList', {
+      title: 'Base Currency',
+      type: 'base',
+    });
   }
 
   handleQuoteCurrencyPress() {
-    this.props.navigation.navigate('CurrencyList', { title: 'Quote Currency' });
+    this.props.navigation.navigate('CurrencyList', {
+      title: 'Quote Currency',
+      type: 'quote',
+    });
   }
 
   handleChangeText(amount) {
@@ -115,4 +121,4 @@ class Home extends Component {
     );
   }
 }
-export default Home;
+export default connect()(Home);
