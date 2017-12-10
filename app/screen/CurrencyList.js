@@ -7,27 +7,19 @@ import { ListItems, Seperator } from '../components/List';
 import { chageBaseCurrency, chageQuoteCurrency } from '../actions/currencies';
 
 const TEMP_SELECTED = 'CAD';
-// @connect((store) => {
-//   const {
-//     baseCurrency, quoteCurrency, amount, conversions,
-//   } = store.currencies;
-//   const conversionSelector = conversions[baseCurrency] || {};
-//   const rates = conversionSelector.rates || {};
-//   const rate = rates[quoteCurrency] || 0;
-//   const { isFetching, date } = conversionSelector;
-//   return {
-//     baseCurrency,
-//     quoteCurrency,
-//     amount,
-//     rate,
-//     isFetching,
-//     date,
-//   };
-// })
+@connect((store) => {
+  const { baseCurrency, quoteCurrency } = store.currencies;
+  return {
+    baseCurrency,
+    quoteCurrency,
+  };
+})
 class CurrencyList extends Component {
   static propTypes = {
     navigation: PropTypes.object,
     dispatch: PropTypes.func,
+    baseCurrency: PropTypes.string,
+    quoteCurrency: PropTypes.string,
   };
   handlePress = (currency) => {
     const { type } = this.props.navigation.state.params;
@@ -39,6 +31,12 @@ class CurrencyList extends Component {
     this.props.navigation.goBack(null);
   };
   render() {
+    const { type } = this.props.navigation.state.params;
+    let comparisonCurrency = this.props.baseCurrency;
+    if (type === 'quote') {
+      comparisonCurrency = this.props.quoteCurrency;
+    }
+
     return (
       <View style={{ flex: 1 }}>
         <StatusBar barStyle="default" translucent={false} />
@@ -47,7 +45,7 @@ class CurrencyList extends Component {
           renderItem={({ item }) => (
             <ListItems
               text={item}
-              selected={item === TEMP_SELECTED}
+              selected={item === comparisonCurrency}
               onPress={() => this.handlePress(item)}
             />
           )}

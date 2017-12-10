@@ -29,7 +29,7 @@ ConversionRate.propTypes = {
   date: PropTypes.object,
   base: PropTypes.string,
   quote: PropTypes.string,
-  conversionRate: PropTypes.string,
+  conversionRate: PropTypes.number,
 };
 
 export default ConversionRate;
