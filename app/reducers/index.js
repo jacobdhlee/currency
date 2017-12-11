@@ -5,5 +5,5 @@ import themeReducer from './themes';
 
 export default combineReducers({
   currencies,
-  themeReducer,
+  themes: themeReducer,
 });

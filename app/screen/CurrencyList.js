@@ -6,12 +6,14 @@ import Currencies from '../data/Currency';
 import { ListItems, Seperator } from '../components/List';
 import { chageBaseCurrency, chageQuoteCurrency } from '../actions/currencies';
 
-const TEMP_SELECTED = 'CAD';
 @connect((store) => {
   const { baseCurrency, quoteCurrency } = store.currencies;
+  const { primaryColor } = store.themes;
+
   return {
     baseCurrency,
     quoteCurrency,
+    primaryColor,
   };
 })
 class CurrencyList extends Component {
@@ -20,6 +22,7 @@ class CurrencyList extends Component {
     dispatch: PropTypes.func,
     baseCurrency: PropTypes.string,
     quoteCurrency: PropTypes.string,
+    primaryColor: PropTypes.string,
   };
   handlePress = (currency) => {
     const { type } = this.props.navigation.state.params;
@@ -45,6 +48,7 @@ class CurrencyList extends Component {
           renderItem={({ item }) => (
             <ListItems
               text={item}
+              iconBackground={this.props.primaryColor}
               selected={item === comparisonCurrency}
               onPress={() => this.handlePress(item)}
             />
