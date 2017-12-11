@@ -9,7 +9,11 @@ import { InputWithButton } from '../components/TextInput';
 import { ClearButton } from '../components/Button';
 import { ConversionRate } from '../components/Text';
 
-import { swapCurrecy, changeCurrencyAmount } from '../actions/currencies';
+import {
+  swapCurrecy,
+  changeCurrencyAmount,
+  getInitialConversion,
+} from '../actions/currencies';
 
 @connect((store) => {
   const {
@@ -49,6 +53,10 @@ class Home extends Component {
     this.handleChangeText = this.handleChangeText.bind(this);
     this.handleReverseButton = this.handleReverseButton.bind(this);
     this.handleOptionPress = this.handleOptionPress.bind(this);
+  }
+
+  componentWillMount() {
+    this.props.dispatch(getInitialConversion());
   }
 
   handleBaseCurrencyPress() {
