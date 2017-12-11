@@ -15,6 +15,7 @@ import { swapCurrecy, changeCurrencyAmount } from '../actions/currencies';
   const {
     baseCurrency, quoteCurrency, amount, conversions,
   } = store.currencies;
+  const { primaryColor } = store.themes;
   const conversionSelector = conversions[baseCurrency] || {};
   const rates = conversionSelector.rates || {};
   const rate = rates[quoteCurrency] || 0;
@@ -26,6 +27,7 @@ import { swapCurrecy, changeCurrencyAmount } from '../actions/currencies';
     rate,
     isFetching,
     date,
+    primaryColor,
   };
 })
 class Home extends Component {
@@ -38,6 +40,7 @@ class Home extends Component {
     rate: PropTypes.object,
     isFetching: PropTypes.bool,
     date: PropTypes.object,
+    primaryColor: PropTypes.string,
   };
   constructor(props) {
     super(props);
@@ -88,20 +91,22 @@ class Home extends Component {
       quotePrice = '...';
     }
     return (
-      <Container>
+      <Container backgroundColor={this.props.primaryColor}>
         <StatusBar translucent={false} barStyle="light-content" />
         <Header onPress={this.handleOptionPress} />
         <KeyboardAvoidingView behavior="padding">
-          <Logo />
+          <Logo tintColor={this.props.primaryColor} />
           <InputWithButton
             buttonText={baseCurrency}
             onPress={this.handleBaseCurrencyPress}
+            textColor={this.props.primaryColor}
             keyboardType="numeric"
             defaultValue={amount.toString()}
             onChangeText={this.handleChangeText}
           />
           <InputWithButton
             buttonText={quoteCurrency}
+            textColor={this.props.primaryColor}
             onPress={this.handleQuoteCurrencyPress}
             editable={false}
             defaultValue={quotePrice}
