@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import styles from './styles';
@@ -26,7 +26,7 @@ const ConversionRate = ({
 );
 
 ConversionRate.propTypes = {
-  date: PropTypes.object,
+  date: PropTypes.string,
   base: PropTypes.string,
   quote: PropTypes.string,
   conversionRate: PropTypes.number,

@@ -8,6 +8,7 @@ import { Logo } from '../components/Logo';
 import { InputWithButton } from '../components/TextInput';
 import { ClearButton } from '../components/Button';
 import { ConversionRate } from '../components/Text';
+import { connectAlert } from '../components/Alert';
 
 import {
   swapCurrecy,
@@ -17,7 +18,11 @@ import {
 
 @connect((store) => {
   const {
-    baseCurrency, quoteCurrency, amount, conversions,
+    baseCurrency,
+    quoteCurrency,
+    amount,
+    conversions,
+    error,
   } = store.currencies;
   const { primaryColor } = store.themes;
   const conversionSelector = conversions[baseCurrency] || {};
@@ -32,19 +37,22 @@ import {
     isFetching,
     date,
     primaryColor,
+    currencyError: error,
   };
 })
 class Home extends Component {
-  static propType = {
+  static propTypes = {
     navigation: PropTypes.object,
     dispatch: PropTypes.func,
     baseCurrency: PropTypes.string,
     quoteCurrency: PropTypes.string,
-    amount: PropTypes.string,
-    rate: PropTypes.object,
+    amount: PropTypes.number,
+    conversionRate: PropTypes.number,
+    lastConvertedDate: PropTypes.object,
     isFetching: PropTypes.bool,
-    date: PropTypes.object,
     primaryColor: PropTypes.string,
+    currencyError: PropTypes.string,
+    alertWithType: PropTypes.func,
   };
   constructor(props) {
     super(props);
@@ -57,6 +65,15 @@ class Home extends Component {
 
   componentWillMount() {
     this.props.dispatch(getInitialConversion());
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (
+      nextProps.currencyError &&
+      nextProps.currencyError !== this.props.currencyError
+    ) {
+      this.props.alertWithType('error', 'Error', nextProps.currencyError);
+    }
   }
 
   handleBaseCurrencyPress() {
@@ -134,4 +151,4 @@ class Home extends Component {
     );
   }
 }
-export default connect()(Home);
+export default connect()(connectAlert(Home));
