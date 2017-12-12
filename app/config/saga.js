@@ -16,7 +16,6 @@ const fetchConversionRate = function* (action) {
     if (currency === undefined) {
       currency = yield select(state => state.currencies.baseCurrency);
     }
-    console.log('fucking currency = ', currency);
     const response = yield call(getRate, currency);
     const result = yield response.json();
     if (result.error) {
