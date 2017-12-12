@@ -88,7 +88,7 @@ class Logo extends Component {
             source={Logos}
           />
         </Animated.Image>
-        <Text style={styles.text}>Currency Covertor</Text>
+        <Text style={styles.text}>Currency Converter</Text>
       </Animated.View>
     );
   }
