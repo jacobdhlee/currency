@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { StatusBar, KeyboardAvoidingView } from 'react-native';
+import { StatusBar, KeyboardAvoidingView, NetInfo } from 'react-native';
 import { Container } from '../components/Container';
 import { Header } from '../components/Header';
 import { Logo } from '../components/Logo';
@@ -15,6 +15,8 @@ import {
   changeCurrencyAmount,
   getInitialConversion,
 } from '../actions/currencies';
+
+import { changeNetworkStatus } from '../actions/network';
 
 @connect((store) => {
   const {
@@ -38,6 +40,7 @@ import {
     date,
     primaryColor,
     currencyError: error,
+    connected: store.network.connected,
   };
 })
 class Home extends Component {
@@ -53,6 +56,7 @@ class Home extends Component {
     primaryColor: PropTypes.string,
     currencyError: PropTypes.string,
     alertWithType: PropTypes.func,
+    connected: PropTypes.bool,
   };
   constructor(props) {
     super(props);
@@ -61,10 +65,13 @@ class Home extends Component {
     this.handleChangeText = this.handleChangeText.bind(this);
     this.handleReverseButton = this.handleReverseButton.bind(this);
     this.handleOptionPress = this.handleOptionPress.bind(this);
+    this.handleNetworkChange = this.handleNetworkChange.bind(this);
+    this.handleNetworkWarningPress = this.handleNetworkWarningPress.bind(this);
   }
 
   componentWillMount() {
     this.props.dispatch(getInitialConversion());
+    NetInfo.addEventListener('connectionChange', this.handleNetworkChange);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -74,6 +81,22 @@ class Home extends Component {
     ) {
       this.props.alertWithType('error', 'Error', nextProps.currencyError);
     }
+  }
+
+  componentWillUnmount() {
+    NetInfo.removeEventListener('connectionChange', this.handleNetworkChange);
+  }
+
+  handleNetworkChange(info) {
+    this.props.dispatch(changeNetworkStatus(info.type));
+  }
+
+  handleNetworkWarningPress() {
+    this.props.alertWithType(
+      'warn',
+      'Not Connected to the Internt',
+      'App might not work!',
+    );
   }
 
   handleBaseCurrencyPress() {
@@ -118,7 +141,11 @@ class Home extends Component {
     return (
       <Container backgroundColor={this.props.primaryColor}>
         <StatusBar translucent={false} barStyle="light-content" />
-        <Header onPress={this.handleOptionPress} />
+        <Header
+          isConnected={this.props.connected}
+          onPress={this.handleOptionPress}
+          onWarningPress={this.handleNetworkWarningPress}
+        />
         <KeyboardAvoidingView behavior="padding">
           <Logo tintColor={this.props.primaryColor} />
           <InputWithButton
