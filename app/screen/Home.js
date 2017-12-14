@@ -9,6 +9,7 @@ import { InputWithButton } from '../components/TextInput';
 import { ClearButton } from '../components/Button';
 import { ConversionRate } from '../components/Text';
 import { connectAlert } from '../components/Alert';
+import { AnimateIn } from '../components/Animations';
 
 import {
   swapCurrecy,
@@ -147,32 +148,38 @@ class Home extends Component {
           onWarningPress={this.handleNetworkWarningPress}
         />
         <KeyboardAvoidingView behavior="padding">
-          <Logo tintColor={this.props.primaryColor} />
-          <InputWithButton
-            buttonText={baseCurrency}
-            onPress={this.handleBaseCurrencyPress}
-            textColor={this.props.primaryColor}
-            keyboardType="numeric"
-            defaultValue={amount.toString()}
-            onChangeText={this.handleChangeText}
-          />
-          <InputWithButton
-            buttonText={quoteCurrency}
-            textColor={this.props.primaryColor}
-            onPress={this.handleQuoteCurrencyPress}
-            editable={false}
-            defaultValue={quotePrice}
-          />
-          <ConversionRate
-            base={baseCurrency}
-            quote={quoteCurrency}
-            date={date}
-            conversionRate={rate}
-          />
-          <ClearButton
-            text="reverse currency"
-            onPress={this.handleReverseButton}
-          />
+          <AnimateIn type="fromTop">
+            <Logo tintColor={this.props.primaryColor} />
+          </AnimateIn>
+          <AnimateIn type="fadeIn" delay={500}>
+            <InputWithButton
+              buttonText={baseCurrency}
+              onPress={this.handleBaseCurrencyPress}
+              textColor={this.props.primaryColor}
+              keyboardType="numeric"
+              defaultValue={amount.toString()}
+              onChangeText={this.handleChangeText}
+            />
+            <InputWithButton
+              buttonText={quoteCurrency}
+              textColor={this.props.primaryColor}
+              onPress={this.handleQuoteCurrencyPress}
+              editable={false}
+              value={quotePrice}
+            />
+          </AnimateIn>
+          <AnimateIn type="fromBottom" delay={500} duration={750}>
+            <ConversionRate
+              base={baseCurrency}
+              quote={quoteCurrency}
+              date={date}
+              conversionRate={rate}
+            />
+            <ClearButton
+              text="reverse currency"
+              onPress={this.handleReverseButton}
+            />
+          </AnimateIn>
         </KeyboardAvoidingView>
       </Container>
     );
