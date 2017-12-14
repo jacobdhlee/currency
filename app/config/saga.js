@@ -1,4 +1,5 @@
 import { takeEvery, select, call, put } from 'redux-saga/effects';
+import { delay } from 'redux-saga';
 import {
   SWAP_CURRENCY,
   CHANGE_BASE_CURRENCY,
@@ -11,6 +12,14 @@ const getRate = currency =>
   fetch(`https://api.fixer.io/latest?base=${currency}`);
 
 const fetchConversionRate = function* (action) {
+  const { connected, hasCheckedStatus } = yield select(state => state.network);
+  if (!connected && hasCheckedStatus) {
+    yield put({
+      type: CONVERSION_ERROR,
+      error: 'Not connected Internet, so it may outdated conversion rate',
+    });
+    return;
+  }
   try {
     let currency = action.currency;
     if (currency === undefined) {
@@ -28,10 +37,23 @@ const fetchConversionRate = function* (action) {
   }
 };
 
+const clearConversionError = function* () {
+  const DELAY_SECOND = 5;
+  const error = yield select(state => state.currencies.error);
+  if (error) {
+    yield delay(DELAY_SECOND * 1000);
+    yield put({
+      type: CONVERSION_ERROR,
+      error: null,
+    });
+  }
+};
+
 const rootSaga = function* () {
   yield takeEvery(GET_INITIAL_CONVERSION, fetchConversionRate);
   yield takeEvery(SWAP_CURRENCY, fetchConversionRate);
   yield takeEvery(CHANGE_BASE_CURRENCY, fetchConversionRate);
+  yield takeEvery(CONVERSION_ERROR, clearConversionError);
 };
 
 export default rootSaga;
