@@ -19,6 +19,7 @@ exports[`text props passed 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "alignItems": "center",
       "opacity": 1,
     }
   }
@@ -26,19 +27,36 @@ exports[`text props passed 1`] = `
   tvParallaxProperties={undefined}
 >
   <View
-    style={undefined}
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      }
+    }
   >
     <Image
       resizeMode="contain"
       source={1}
-      style={undefined}
+      style={
+        Object {
+          "marginRight": 11,
+          "width": 19,
+        }
+      }
     />
     <Text
       accessible={true}
       allowFontScaling={true}
       disabled={false}
       ellipsizeMode="tail"
-      style={undefined}
+      style={
+        Object {
+          "color": "#FFFFFF",
+          "fontSize": 15,
+          "fontWeight": "300",
+          "paddingVertical": 20,
+        }
+      }
     >
        
       this is test
