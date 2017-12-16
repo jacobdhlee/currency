@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`create CHANGE_CURRENCY_AMOUNT snapshot 1`] = `
+Object {
+  "amount": 5000,
+  "type": "CHANGE_CURRENCY_AMOUNT",
+}
+`;
+
+exports[`create SWAP_CURRENCY snapshot 1`] = `
+Object {
+  "type": "SWAP_CURRENCY",
+}
+`;
