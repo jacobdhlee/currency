@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/screen/Home.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">app/screen</a> Home.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/93</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/47</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/21</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/42</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import React, { Component } from 'react';<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+import PropType<span class="cstat-no" title="statement not covered" >s from 'prop-types';<span class="cstat-no" title="statement not covered" ></span></span>
+import { connect<span class="cstat-no" title="statement not covered" > } from 'react-redux';</span>
+import { StatusBa<span class="cstat-no" title="statement not covered" >r, KeyboardAvoidingView,</span> NetInfo } from 'react-native';
+import { Contai<span class="cstat-no" title="statement not covered" >ner } from '../components/Container</span>';
+import { Hea<span class="cstat-no" title="statement not covered" >der } from '../components/Header</span>';
+import { L<span class="cstat-no" title="statement not covered" >ogo } from '../components/Logo</span>';
+import { InputW<span class="cstat-no" title="statement not covered" >ithButton } from '../components/Tex</span>tInput';
+import { Cle<span class="cstat-no" title="statement not covered" >arButton } from '../components/B</span>utton';
+import { C<span class="cstat-no" title="statement not covered" >onversionRate } from '../compo</span>nents/Text';
+import { co<span class="cstat-no" title="statement not covered" >nnectAlert } from '../component</span>s/Alert';
+import { Animate<span class="cstat-no" title="statement not covered" >In } from '../components/Animations'</span>;
+&nbsp;
+import {<span class="cstat-no" title="statement not covered" ></span>
+  swapCurrecy,
+  changeCurrencyAmount,
+  getInitialConversion,
+} from '../actions/currencies';
+&nbsp;
+import { chan<span class="cstat-no" title="statement not covered" >geNetworkStatus } from '../act</span>ions/netw<span class="fstat-no" title="function not covered" >ork';<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+&nbsp;
+@connect((store) =&gt; {
+  const {
+    baseCurrency,
+    quoteCurrency,
+    amount,
+    conversions,
+    error,
+  } = store.currencies;
+  const { primaryColor } = store.themes;
+  const conversionSelector = conversions[baseCurrency] || {};
+  const rates = conversionSelector.rates || {};
+  const rate = rates[quoteCurrency] || 0;
+  const { isFetching, date } = conversionSelector;
+  return {
+    baseCurrency,
+    quoteCurrency,
+    amount,
+    rate,
+    isFetching,
+    date,
+    primaryColor,
+    currencyError: error,
+    connected: store.network.connected,
+  };
+})
+class <span class="cstat-no" title="statement not covered" >Home extends Component {<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+  static propTypes = {
+    navigation: PropTypes.object,
+    dispatch: PropTypes.func,
+    baseCurrency: PropTypes.string,
+    quoteCurrency: PropTypes.string,
+    amount: PropTypes.number,
+    conversionRate: PropTypes.number,
+    lastConvertedDate: PropTypes.object,
+    isFetching: PropTypes.bool,
+    primaryColor: PropTypes.string,
+    currencyError: PropTypes.string,
+    alertWithType: PropTypes.func,
+    connected: PropTypes.bool,
+  };
+  constru<span class="fstat-no" title="function not covered" >ctor(</span>props) <span class="cstat-no" title="statement not covered" >{<span class="cstat-no" title="statement not covered" ></span></span>
+    super(props);
+<span class="cstat-no" title="statement not covered" >    this.handleBaseCurrencyPress = this.handleBaseCurrencyPress.bind(this</span>);
+<span class="cstat-no" title="statement not covered" >    this.handleQuoteCurrencyPress = this.handleQuoteCurrencyPress.bind(this</span>);
+<span class="cstat-no" title="statement not covered" >    this.handleChangeText = this.handleChangeText.bind(this</span>);
+<span class="cstat-no" title="statement not covered" >    this.handleReverseButton = this.handleReverseButton.bind(this</span>);
+<span class="cstat-no" title="statement not covered" >    this.handleOptionPress = this.handleOptionPress.bind(this</span>);
+<span class="cstat-no" title="statement not covered" >    this.handleNetworkChange = this.handleNetworkChange.bind(this</span>);
+<span class="cstat-no" title="statement not covered" >    this.handleNetworkWarningPress = this.handleNetworkWarningPress.bind(thi<span class="cstat-no" title="statement not covered" >s</span>);</span>
+<span class="cstat-no" title="statement not covered" >  }<span class="fstat-no" title="function not covered" ></span></span>
+&nbsp;
+  componentWillMount() {
+<span class="cstat-no" title="statement not covered" >    this.props.dispatch(getInitialConversion());</span>
+<span class="cstat-no" title="statement not covered" >    NetInfo.addEventListener('connectionChange', this.handleNetworkChange);</span>
+  }<span class="fstat-no" title="function not covered" ></span>
+&nbsp;
+  componentWillReceiveProps(nextProps) {
+<span class="cstat-no" title="statement not covered" >    if (</span>
+      nextProps.currencyError &amp;&amp;
+      nextProps.currencyError !== this.props.currencyError
+    ) {
+<span class="cstat-no" title="statement not covered" >      this.props.alertWithType('error', 'Error', nextProps.currency</span>Error);
+    }
+  }<span class="fstat-no" title="function not covered" ></span>
+&nbsp;
+  componentWillUnmount() {
+<span class="cstat-no" title="statement not covered" >    NetInfo.removeEventListener('connectionChange', this.handleNetworkChange);</span>
+  }<span class="fstat-no" title="function not covered" ></span>
+&nbsp;
+  handleNetworkChange(info) {
+<span class="cstat-no" title="statement not covered" >    this.props.dispatch(changeNetworkStatus(info.type));</span>
+  }<span class="fstat-no" title="function not covered" ></span>
+&nbsp;
+  handleNetworkWarningPress() {
+<span class="cstat-no" title="statement not covered" >    this.props.alertWithType(</span>
+      'warn',
+      'Not Connected to the Internt',
+      'App might not work!',
+    );
+  }<span class="fstat-no" title="function not covered" ></span>
+&nbsp;
+  handleBaseCurrencyPress() {
+<span class="cstat-no" title="statement not covered" >    this.props.navigation.navigate('CurrencyList', {</span>
+      title: 'Base Currency',
+      type: 'base',
+    });
+  }<span class="fstat-no" title="function not covered" ></span>
+&nbsp;
+  handleQuoteCurrencyPress() {
+<span class="cstat-no" title="statement not covered" >    this.props.navigation.navigate('CurrencyList', {</span>
+      title: 'Quote Currency',
+      type: 'quote',
+    });
+  }<span class="fstat-no" title="function not covered" ></span>
+&nbsp;
+  handleChangeText(amount) {
+<span class="cstat-no" title="statement not covered" >    this.props.dispatch(changeCurrencyAmount(amount));</span>
+  }<span class="fstat-no" title="function not covered" ></span>
+&nbsp;
+  handleReverseButton() {
+<span class="cstat-no" title="statement not covered" >    this.props.dispatch(swapCurrecy());</span>
+  }<span class="fstat-no" title="function not covered" ></span>
+&nbsp;
+  handleOptionPress() {
+<span class="cstat-no" title="statement not covered" >    this.props.navigation.navigate('Options</span>');
+  }<span class="fstat-no" title="function not covered" ></span>
+&nbsp;
+  render() {
+    const {
+      baseCurrency,
+      quoteCurrency,
+      amount,
+      rate,
+      isFetching,
+      date,
+<span class="cstat-no" title="statement not covered" >    } = thi</span>s.props;<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span></span></span></span>
+    let quotePr<span class="cstat-no" title="statement not covered" >ice = (amount * rate).toF</span>ixed(2);
+<span class="cstat-no" title="statement not covered" >    if (isFetching) {</span>
+<span class="cstat-no" title="statement not covered" >      quotePrice =</span> '...';
+    }
+<span class="cstat-no" title="statement not covered" >    return (</span>
+      &lt;Container backgroundColor={this.props.primaryColor}&gt;
+        &lt;StatusBar translucent={false} barStyle="light-content" /&gt;
+        &lt;Header
+          isConnected={this.props.connected}
+          onPress={this.handleOptionPress}
+          onWarningPress={this.handleNetworkWarningPress}
+        /&gt;
+        &lt;KeyboardAvoidingView behavior="padding"&gt;
+          &lt;AnimateIn type="fromTop"&gt;
+            &lt;Logo tintColor={this.props.primaryColor} /&gt;
+          &lt;/AnimateIn&gt;
+          &lt;AnimateIn type="fadeIn" delay={500}&gt;
+            &lt;InputWithButton
+              buttonText={baseCurrency}
+              onPress={this.handleBaseCurrencyPress}
+              textColor={this.props.primaryColor}
+              keyboardType="numeric"
+              defaultValue={amount.toString()}
+              onChangeText={this.handleChangeText}
+            /&gt;
+            &lt;InputWithButton
+              buttonText={quoteCurrency}
+              textColor={this.props.primaryColor}
+              onPress={this.handleQuoteCurrencyPress}
+              editable={false}
+              value={quotePrice}
+            /&gt;
+          &lt;/AnimateIn&gt;
+          &lt;AnimateIn type="fromBottom" delay={500} duration={750}&gt;
+            &lt;ConversionRate
+              base={baseCurrency}
+              quote={quoteCurrency}
+              date={date}
+              conversionRate={rate}
+            /&gt;
+            &lt;ClearButton
+              text="reverse currency"
+              onPress={this.handleReverseButton}
+            /&gt;
+          &lt;/AnimateIn&gt;
+        &lt;/KeyboardAvoidingView&gt;
+      &lt;/Container&gt;
+    );
+  }<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span>
+}
+export default connect()(connectAlert(Home));
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Dec 16 2017 14:22:19 GMT-0500 (EST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
