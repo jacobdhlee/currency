@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`change PRIMARY_COLOR_CHANGE test 1`] = `
+Object {
+  "color": "red",
+  "type": "PRIMARY_COLOR_CHANGE",
+}
+`;
