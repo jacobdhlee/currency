@@ -1,5 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`chageBaseCurrency 1`] = `
+Object {
+  "amount": 100,
+  "baseCurrency": "EUR",
+  "conversions": Object {
+    "EUR": Object {
+      "date": "",
+      "isFetching": true,
+      "rates": Object {},
+    },
+  },
+  "error": null,
+  "quoteCurrency": "GBP",
+}
+`;
+
+exports[`chageQuoteCurrency 1`] = `
+Object {
+  "amount": 100,
+  "baseCurrency": "USD",
+  "conversions": Object {
+    "KRW": Object {
+      "date": "",
+      "isFetching": true,
+      "rates": Object {},
+    },
+  },
+  "error": null,
+  "quoteCurrency": "KRW",
+}
+`;
+
+exports[`changeCurrencyAmount 1`] = `
+Object {
+  "amount": 10000,
+  "baseCurrency": "USD",
+  "conversions": Object {},
+  "error": null,
+  "quoteCurrency": "GBP",
+}
+`;
+
 exports[`set initial state 1`] = `
 Object {
   "amount": 100,

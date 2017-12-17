@@ -1,5 +1,10 @@
 import reducer from '../currencies';
-import { getInitialConversion } from '../../actions/currencies';
+import {
+  getInitialConversion,
+  changeCurrencyAmount,
+  chageBaseCurrency,
+  chageQuoteCurrency,
+} from '../../actions/currencies';
 
 it('set initial state', () => {
   const expected = {
@@ -40,5 +45,20 @@ it('set initial state', () => {
 
 it('set nested data on initial fetch', () => {
   const actual = reducer(undefined, getInitialConversion());
+  expect(actual).toMatchSnapshot();
+});
+
+it('changeCurrencyAmount', () => {
+  const actual = reducer(undefined, changeCurrencyAmount('10000'));
+  expect(actual).toMatchSnapshot();
+});
+
+it('chageBaseCurrency', () => {
+  const actual = reducer(undefined, chageBaseCurrency('EUR'));
+  expect(actual).toMatchSnapshot();
+});
+
+it('chageQuoteCurrency', () => {
+  const actual = reducer(undefined, chageQuoteCurrency('KRW'));
   expect(actual).toMatchSnapshot();
 });
